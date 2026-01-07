@@ -11,7 +11,7 @@
 
 set -e
 
-KERAAL_URL="https://keraal.enstb.org/downloads"
+KERAAL_URL="http://keraal.enstb.org/data"
 DATA_DIR="${HOME}/keraal/data/raw"
 
 echo "============================================================"
