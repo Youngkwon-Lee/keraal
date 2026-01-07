@@ -131,6 +131,16 @@ def load_raw_data(config: Config) -> List:
                 skeleton = np.loadtxt(kinect_file)
                 if skeleton.ndim == 1:
                     skeleton = skeleton.reshape(1, -1)
+                # Reshape to (T, 25, 7) - Kinect has 25 joints, 7 values each (pos + orient)
+                T = skeleton.shape[0]
+                n_features = skeleton.shape[1]
+                if n_features == 175:  # 25 joints * 7 values
+                    skeleton = skeleton.reshape(T, 25, 7)
+                elif n_features == 75:  # 25 joints * 3 values (position only)
+                    skeleton = skeleton.reshape(T, 25, 3)
+                else:
+                    # Assume it's already in proper format or use raw
+                    pass
             except Exception as e:
                 print(f"Error loading {kinect_file}: {e}")
                 continue
