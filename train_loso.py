@@ -44,12 +44,38 @@ from keraal_converter import KeraalSample
 # ============================================================
 # Configuration
 # ============================================================
+def get_project_root() -> Path:
+    """Auto-detect project root based on environment"""
+    # Check common locations
+    candidates = [
+        Path.home() / "keraal",           # HPC: ~/keraal
+        Path("D:/keraal"),                 # Windows
+        Path(__file__).parent,             # Script location
+    ]
+    for path in candidates:
+        if path.exists() and (path / "data").exists():
+            return path
+    return Path(__file__).parent
+
+
 @dataclass
 class Config:
     """Training configuration"""
-    # Paths
-    DATA_PATH: Path = Path("D:/keraal/processed/keraal_hawkeye_format.pkl")
-    RESULT_DIR: Path = Path("D:/keraal/results")
+    # Paths (auto-detected)
+    PROJECT_ROOT: Path = None
+    DATA_PATH: Path = None
+    RAW_DATA_DIR: Path = None
+    RESULT_DIR: Path = None
+
+    def __post_init__(self):
+        if self.PROJECT_ROOT is None:
+            self.PROJECT_ROOT = get_project_root()
+        if self.DATA_PATH is None:
+            self.DATA_PATH = self.PROJECT_ROOT / "data" / "processed" / "keraal_loso.pkl"
+        if self.RAW_DATA_DIR is None:
+            self.RAW_DATA_DIR = self.PROJECT_ROOT / "data" / "raw"
+        if self.RESULT_DIR is None:
+            self.RESULT_DIR = self.PROJECT_ROOT / "results"
 
     # Model
     HIDDEN_SIZE: int = 128
@@ -69,6 +95,103 @@ class Config:
     # Evaluation
     NUM_RUNS: int = 5  # IJCNN: 10 runs average
     TASK: str = 'binary'  # 'binary' or 'multiclass'
+
+
+# ============================================================
+# Raw Data Loading
+# ============================================================
+def load_raw_data(config: Config) -> List:
+    """Load data from raw kinect/annotator files"""
+    import xml.etree.ElementTree as ET
+
+    raw_dir = config.RAW_DATA_DIR
+    kinect_dir = raw_dir / "kinect"
+    annotator_dir = raw_dir / "annotatorA"
+
+    if not kinect_dir.exists():
+        print(f"Kinect directory not found: {kinect_dir}")
+        return []
+
+    samples = []
+    kinect_files = list(kinect_dir.glob("*.txt"))
+    print(f"Found {len(kinect_files)} kinect files")
+
+    for kinect_file in kinect_files:
+        # Parse filename: G1A-Kinect-CTK-R1-Brest-022.txt
+        name = kinect_file.stem
+        parts = name.replace("Kinect-", "").split("-")
+
+        # Extract info
+        if len(parts) >= 5:
+            group = "group1A" if name.startswith("G1A") else "group2A" if name.startswith("G2A") else "group3"
+            exercise = parts[1] if len(parts) > 1 else "Unknown"
+
+            # Load skeleton data
+            try:
+                skeleton = np.loadtxt(kinect_file)
+                if skeleton.ndim == 1:
+                    skeleton = skeleton.reshape(1, -1)
+            except Exception as e:
+                print(f"Error loading {kinect_file}: {e}")
+                continue
+
+            # Check for annotation
+            anvil_name = name.replace("Kinect-", "").replace("G1A-", "G1A-").replace("G2A-", "G2A-") + ".anvil"
+            anvil_file = annotator_dir / anvil_name
+
+            is_correct = True
+            error_type = None
+
+            if anvil_file.exists():
+                try:
+                    tree = ET.parse(anvil_file)
+                    root = tree.getroot()
+                    # Look for error annotations
+                    for el in root.iter():
+                        if 'error' in el.tag.lower() or 'label' in el.tag.lower():
+                            if el.text and el.text.strip():
+                                is_correct = False
+                                error_type = el.text.strip()
+                                break
+                except Exception:
+                    pass
+
+            # Create sample
+            sample = KeraalSample(
+                id=name,
+                group=group,
+                exercise=exercise,
+                skeleton_kinect=skeleton,
+                is_correct=is_correct,
+                error_type=error_type
+            )
+            samples.append(sample)
+
+    print(f"Loaded {len(samples)} samples from raw data")
+    return samples
+
+
+def load_or_create_data(config: Config) -> List:
+    """Load from pkl or create from raw data"""
+    # Try loading pkl first
+    if config.DATA_PATH.exists():
+        print(f"Loading from {config.DATA_PATH}")
+        with open(config.DATA_PATH, 'rb') as f:
+            data = pickle.load(f)
+        return data.get('samples', data) if isinstance(data, dict) else data
+
+    # Load from raw data
+    print(f"PKL not found, loading from raw data...")
+    samples = load_raw_data(config)
+
+    if samples:
+        # Save for future use
+        config.DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(config.DATA_PATH, 'wb') as f:
+            pickle.dump({'samples': samples}, f)
+        print(f"Saved to {config.DATA_PATH}")
+
+    return samples
 
 
 # ============================================================
@@ -499,16 +622,13 @@ def main():
     print(f"Epochs: {config.EPOCHS}")
 
     # Load data
-    print(f"\nLoading data from {config.DATA_PATH}...")
+    print(f"\nProject root: {config.PROJECT_ROOT}")
+    print(f"Raw data dir: {config.RAW_DATA_DIR}")
 
-    if not config.DATA_PATH.exists():
-        print(f"Data file not found. Run keraal_converter.py first.")
+    samples = load_or_create_data(config)
+    if not samples:
+        print("No data found. Check data directory.")
         return
-
-    with open(config.DATA_PATH, 'rb') as f:
-        data = pickle.load(f)
-
-    samples = data['samples']
     print(f"Loaded {len(samples)} samples")
 
     # Show distribution
