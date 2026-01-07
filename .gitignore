@@ -1,0 +1,71 @@
+# KERAAL Project .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+
+# Data (large files - download from keraal.enstb.org)
+data/raw/
+data/processed/*.pkl
+downloads/
+*.tar.xz
+*.zip
+
+# Skeleton data directories (download on HPC)
+openpose/
+kinect/
+blazepose/
+annotatorA/
+annotatorB/
+processed/
+videos/
+visualizations/
+
+# Sample data (keep for quick testing)
+!keraal_sample_2022/
+
+# Results (keep structure, ignore large files)
+results/*.pkl
+results/*.log
+results/*.pt
+results/*.pth
+
+# Model checkpoints
+models/trained/
+*.pt
+*.pth
+*.onnx
+*.tflite
+
+# Visualizations (generated)
+visualizations/*.png
+visualizations/*.mp4
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+nohup.out
+
+# Temporary
+tmp/
+temp/
+*.tmp
