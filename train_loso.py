@@ -158,10 +158,10 @@ def load_raw_data(config: Config) -> List:
 
             # Create sample
             sample = KeraalSample(
-                id=name,
+                sample_id=name,
                 group=group,
                 exercise=exercise,
-                skeleton_kinect=skeleton,
+                kinect=skeleton,
                 is_correct=is_correct,
                 error_type=error_type
             )
