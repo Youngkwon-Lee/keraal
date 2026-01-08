@@ -150,7 +150,8 @@ def load_raw_data(config: Config) -> List:
             error_type = None
 
             # Group3: labels in filename (G3-Kinect-CTK-P1T1-Unknown-E1B1-0.txt)
-            if group == 'group3' and len(parts) >= 7:
+            # After replace("Kinect-", ""): ['G3', 'CTK', 'P1T1', 'Unknown', 'E1B1', '0'] = 6 parts
+            if group == 'group3' and len(parts) >= 6:
                 label = parts[-2]  # E1B1, E2B1, E3B1, or C
                 if label == 'C':
                     is_correct = True
