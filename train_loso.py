@@ -146,25 +146,38 @@ def load_raw_data(config: Config) -> List:
                 continue
 
             # Check for annotation
-            anvil_name = name.replace("Kinect-", "").replace("G1A-", "G1A-").replace("G2A-", "G2A-") + ".anvil"
-            anvil_file = annotator_dir / anvil_name
-
             is_correct = True
             error_type = None
 
-            if anvil_file.exists():
-                try:
-                    tree = ET.parse(anvil_file)
-                    root = tree.getroot()
-                    # Look for error annotations
-                    for el in root.iter():
-                        if 'error' in el.tag.lower() or 'label' in el.tag.lower():
-                            if el.text and el.text.strip():
-                                is_correct = False
-                                error_type = el.text.strip()
-                                break
-                except Exception:
-                    pass
+            # Group3: labels in filename (G3-Kinect-CTK-P1T1-Unknown-E1B1-0.txt)
+            if group == 'group3' and len(parts) >= 7:
+                label = parts[-2]  # E1B1, E2B1, E3B1, or C
+                if label == 'C':
+                    is_correct = True
+                elif label.startswith('E'):
+                    is_correct = False
+                    # Extract error number: E1B1 → Error1
+                    error_num = label[1] if len(label) > 1 else '1'
+                    error_type = f"Error{error_num}"
+
+            # Group1A/2A: labels in .anvil files
+            else:
+                anvil_name = name.replace("Kinect-", "").replace("G1A-", "G1A-").replace("G2A-", "G2A-") + ".anvil"
+                anvil_file = annotator_dir / anvil_name
+
+                if anvil_file.exists():
+                    try:
+                        tree = ET.parse(anvil_file)
+                        root = tree.getroot()
+                        # Look for error annotations
+                        for el in root.iter():
+                            if 'error' in el.tag.lower() or 'label' in el.tag.lower():
+                                if el.text and el.text.strip():
+                                    is_correct = False
+                                    error_type = el.text.strip()
+                                    break
+                    except Exception:
+                        pass
 
             # Create sample
             sample = KeraalSample(
