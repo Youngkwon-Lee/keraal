@@ -84,7 +84,7 @@ class Config:
 
     # Training (IJCNN 2024: 1000 epochs, batch 32, lr 0.01)
     BATCH_SIZE: int = 32
-    EPOCHS: int = 50  # Reduced for sample data (increase to 200+ for full data)
+    EPOCHS: int = 10  # Quick test (use 50-200 for full training)
     LEARNING_RATE: float = 0.001
     WEIGHT_DECAY: float = 0.01
 
@@ -93,7 +93,7 @@ class Config:
     SKELETON_TYPE: str = 'kinect'  # 'kinect' or 'blazepose'
 
     # Evaluation
-    NUM_RUNS: int = 5  # IJCNN: 10 runs average
+    NUM_RUNS: int = 1  # Quick test (use 5-10 for full evaluation)
     TASK: str = 'binary'  # 'binary' or 'multiclass'
 
 
