@@ -1,0 +1,638 @@
+nohup: ignoring input
+============================================================
+KERAAL LOSO Training Pipeline
+============================================================
+
+Device: cuda
+Task: binary
+Runs: 1
+Epochs: 10
+
+Project root: /home2/gun3856/keraal
+Raw data dir: /home2/gun3856/keraal/data/raw
+PKL not found, loading from raw data...
+Found 841 kinect files
+Loaded 841 samples from raw data
+Saved to /home2/gun3856/keraal/data/processed/keraal_loso.pkl
+Loaded 841 samples
+
+Label distribution:
+  Correct: 436
+  Error1: 135
+  Error2: 135
+  Error3: 135
+
+Exercise distribution:
+  CTK: 288
+  ELK: 272
+  RTK: 281
+
+============================================================
+LOSO Evaluation: All exercises
+============================================================
+Total samples: 841
+Subjects: 186
+Samples per subject: [3, 2, 2, 2, 1, 2, 2, 2, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2, 3, 2, 1, 3, 3, 1, 2, 2, 2, 2, 1, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 2, 1, 1, 1, 3, 2, 2, 3, 1, 2, 2, 3, 3, 3, 1, 3, 3, 3, 2, 2, 2, 2, 1, 2, 3, 2, 1, 1, 2, 3, 1, 1, 1, 1, 1, 1, 3, 2, 1, 1, 1, 2, 1, 3, 1, 1, 1, 1, 2, 1, 1, 2, 3, 1, 1, 2, 1, 1, 3, 1, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 1, 2, 3, 2, 2, 3, 2, 1, 1, 1, 2, 2, 3, 1, 1, 2, 1, 1, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 3, 1, 2, 1, 3, 1, 1, 1, 1, 1, 2, 1, 1, 1, 60, 60, 60, 60, 60, 60, 60, 60, 60]
+  Fold 1/186: Subject Roscoff-037 | 3/3 correct
+  Fold 2/186: Subject Brest-079 | 2/2 correct
+  Fold 3/186: Subject Roscoff-090 | 2/2 correct
+  Fold 4/186: Subject Brest-011 | 2/2 correct
+  Fold 5/186: Subject Brest-004 | 1/1 correct
+  Fold 6/186: Subject Brest-048 | 2/2 correct
+  Fold 7/186: Subject Brest-032 | 2/2 correct
+  Fold 8/186: Subject Roscoff-047 | 2/2 correct
+  Fold 9/186: Subject Roscoff-045 | 3/3 correct
+  Fold 10/186: Subject Roscoff-048 | 1/1 correct
+  Fold 11/186: Subject Brest-041 | 1/1 correct
+  Fold 12/186: Subject Brest-014 | 2/2 correct
+  Fold 13/186: Subject Roscoff-082 | 2/2 correct
+  Fold 14/186: Subject Roscoff-044 | 2/2 correct
+  Fold 15/186: Subject Roscoff-087 | 2/2 correct
+  Fold 16/186: Subject Brest-036 | 2/2 correct
+  Fold 17/186: Subject Brest-100 | 0/1 correct
+  Fold 18/186: Subject Brest-020 | 2/2 correct
+  Fold 19/186: Subject Brest-033 | 3/3 correct
+  Fold 20/186: Subject Roscoff-080 | 2/2 correct
+  Fold 21/186: Subject Roscoff-008 | 1/1 correct
+  Fold 22/186: Subject Roscoff-005 | 3/3 correct
+  Fold 23/186: Subject Brest-066 | 3/3 correct
+  Fold 24/186: Subject Roscoff-078 | 1/1 correct
+  Fold 25/186: Subject Brest-059 | 2/2 correct
+  Fold 26/186: Subject Brest-094 | 2/2 correct
+  Fold 27/186: Subject Roscoff-052 | 2/2 correct
+  Fold 28/186: Subject Roscoff-007 | 2/2 correct
+  Fold 29/186: Subject Roscoff-079 | 1/1 correct
+  Fold 30/186: Subject Roscoff-043 | 2/2 correct
+  Fold 31/186: Subject Brest-071 | 1/1 correct
+  Fold 32/186: Subject Roscoff-054 | 2/2 correct
+  Fold 33/186: Subject Brest-042 | 1/1 correct
+  Fold 34/186: Subject Brest-080 | 1/1 correct
+  Fold 35/186: Subject Brest-035 | 2/2 correct
+  Fold 36/186: Subject Brest-067 | 3/3 correct
+  Fold 37/186: Subject Roscoff-035 | 1/1 correct
+  Fold 38/186: Subject Brest-092 | 3/3 correct
+  Fold 39/186: Subject Roscoff-065 | 2/2 correct
+  Fold 40/186: Subject Roscoff-026 | 2/2 correct
+  Fold 41/186: Subject Brest-076 | 1/1 correct
+  Fold 42/186: Subject Brest-065 | 0/1 correct
+  Fold 43/186: Subject Roscoff-024 | 1/1 correct
+  Fold 44/186: Subject Brest-055 | 3/3 correct
+  Fold 45/186: Subject Roscoff-089 | 2/2 correct
+  Fold 46/186: Subject Brest-002 | 2/2 correct
+  Fold 47/186: Subject Roscoff-058 | 3/3 correct
+  Fold 48/186: Subject Roscoff-014 | 1/1 correct
+  Fold 49/186: Subject Roscoff-086 | 2/2 correct
+  Fold 50/186: Subject Roscoff-040 | 2/2 correct
+  Fold 51/186: Subject Brest-083 | 3/3 correct
+  Fold 52/186: Subject Roscoff-031 | 3/3 correct
+  Fold 53/186: Subject Roscoff-051 | 3/3 correct
+  Fold 54/186: Subject Roscoff-096 | 1/1 correct
+  Fold 55/186: Subject Roscoff-025 | 3/3 correct
+  Fold 56/186: Subject Brest-073 | 3/3 correct
+  Fold 57/186: Subject Brest-039 | 3/3 correct
+  Fold 58/186: Subject Roscoff-084 | 2/2 correct
+  Fold 59/186: Subject Brest-070 | 2/2 correct
+  Fold 60/186: Subject Roscoff-004 | 2/2 correct
+  Fold 61/186: Subject Roscoff-075 | 2/2 correct
+  Fold 62/186: Subject Brest-089 | 1/1 correct
+  Fold 63/186: Subject Roscoff-016 | 2/2 correct
+  Fold 64/186: Subject Roscoff-053 | 3/3 correct
+  Fold 65/186: Subject Roscoff-015 | 2/2 correct
+  Fold 66/186: Subject Brest-009 | 1/1 correct
+  Fold 67/186: Subject Brest-006 | 1/1 correct
+  Fold 68/186: Subject Roscoff-098 | 2/2 correct
+  Fold 69/186: Subject Roscoff-010 | 3/3 correct
+  Fold 70/186: Subject Roscoff-100 | 1/1 correct
+  Fold 71/186: Subject Brest-084 | 1/1 correct
+  Fold 72/186: Subject Brest-049 | 1/1 correct
+  Fold 73/186: Subject Brest-102 | 1/1 correct
+  Fold 74/186: Subject Brest-072 | 1/1 correct
+  Fold 75/186: Subject Brest-056 | 1/1 correct
+  Fold 76/186: Subject Brest-038 | 3/3 correct
+  Fold 77/186: Subject Roscoff-003 | 2/2 correct
+  Fold 78/186: Subject Roscoff-034 | 1/1 correct
+  Fold 79/186: Subject Brest-016 | 1/1 correct
+  Fold 80/186: Subject Brest-017 | 1/1 correct
+  Fold 81/186: Subject Brest-012 | 2/2 correct
+  Fold 82/186: Subject Brest-107 | 1/1 correct
+  Fold 83/186: Subject Brest-029 | 3/3 correct
+  Fold 84/186: Subject Brest-082 | 1/1 correct
+  Fold 85/186: Subject Roscoff-011 | 1/1 correct
+  Fold 86/186: Subject Roscoff-097 | 1/1 correct
+  Fold 87/186: Subject Brest-069 | 1/1 correct
+  Fold 88/186: Subject Roscoff-019 | 2/2 correct
+  Fold 89/186: Subject Brest-054 | 1/1 correct
+  Fold 90/186: Subject Roscoff-032 | 1/1 correct
+  Fold 91/186: Subject Roscoff-041 | 2/2 correct
+  Fold 92/186: Subject Roscoff-063 | 3/3 correct
+  Fold 93/186: Subject Brest-022 | 1/1 correct
+  Fold 94/186: Subject Brest-106 | 1/1 correct
+  Fold 95/186: Subject Roscoff-013 | 2/2 correct
+  Fold 96/186: Subject Roscoff-101 | 1/1 correct
+  Fold 97/186: Subject Roscoff-036 | 1/1 correct
+  Fold 98/186: Subject Roscoff-023 | 3/3 correct
+  Fold 99/186: Subject Brest-019 | 1/1 correct
+  Fold 100/186: Subject Roscoff-081 | 3/3 correct
+  Fold 101/186: Subject Roscoff-076 | 2/2 correct
+  Fold 102/186: Subject Brest-028 | 1/1 correct
+  Fold 103/186: Subject Roscoff-030 | 2/2 correct
+  Fold 104/186: Subject Roscoff-042 | 2/2 correct
+  Fold 105/186: Subject Roscoff-056 | 2/2 correct
+  Fold 106/186: Subject Roscoff-018 | 2/2 correct
+  Fold 107/186: Subject Brest-062 | 2/2 correct
+  Fold 108/186: Subject Brest-008 | 2/2 correct
+  Fold 109/186: Subject Roscoff-099 | 1/1 correct
+  Fold 110/186: Subject Brest-108 | 1/1 correct
+  Fold 111/186: Subject Roscoff-006 | 2/2 correct
+  Fold 112/186: Subject Roscoff-027 | 2/2 correct
+  Fold 113/186: Subject Roscoff-022 | 2/2 correct
+  Fold 114/186: Subject Brest-078 | 2/2 correct
+  Fold 115/186: Subject Roscoff-088 | 2/2 correct
+  Fold 116/186: Subject Roscoff-057 | 1/1 correct
+  Fold 117/186: Subject Brest-095 | 1/1 correct
+  Fold 118/186: Subject Brest-040 | 1/1 correct
+  Fold 119/186: Subject Roscoff-049 | 2/2 correct
+  Fold 120/186: Subject Brest-034 | 2/2 correct
+  Fold 121/186: Subject Brest-064 | 2/2 correct
+  Fold 122/186: Subject Brest-030 | 1/1 correct
+  Fold 123/186: Subject Roscoff-028 | 2/2 correct
+  Fold 124/186: Subject Roscoff-091 | 3/3 correct
+  Fold 125/186: Subject Brest-046 | 2/2 correct
+  Fold 126/186: Subject Roscoff-009 | 2/2 correct
+  Fold 127/186: Subject Roscoff-068 | 3/3 correct
+  Fold 128/186: Subject Brest-057 | 2/2 correct
+  Fold 129/186: Subject Brest-087 | 1/1 correct
+  Fold 130/186: Subject Brest-097 | 1/1 correct
+  Fold 131/186: Subject Roscoff-002 | 1/1 correct
+  Fold 132/186: Subject Roscoff-069 | 2/2 correct
+  Fold 133/186: Subject Brest-024 | 2/2 correct
+  Fold 134/186: Subject Roscoff-060 | 3/3 correct
+  Fold 135/186: Subject Brest-104 | 1/1 correct
+  Fold 136/186: Subject Brest-086 | 1/1 correct
+  Fold 137/186: Subject Roscoff-017 | 2/2 correct
+  Fold 138/186: Subject Brest-001 | 1/1 correct
+  Fold 139/186: Subject Roscoff-020 | 1/1 correct
+  Fold 140/186: Subject Brest-099 | 1/1 correct
+  Fold 141/186: Subject Brest-088 | 1/1 correct
+  Fold 142/186: Subject Brest-085 | 1/1 correct
+  Fold 143/186: Subject Roscoff-050 | 3/3 correct
+  Fold 144/186: Subject Roscoff-105 | 1/1 correct
+  Fold 145/186: Subject Brest-018 | 1/1 correct
+  Fold 146/186: Subject Brest-052 | 1/1 correct
+  Fold 147/186: Subject Brest-074 | 2/2 correct
+  Fold 148/186: Subject Brest-013 | 1/1 correct
+  Fold 149/186: Subject Brest-027 | 1/1 correct
+  Fold 150/186: Subject Roscoff-103 | 1/1 correct
+  Fold 151/186: Subject Roscoff-001 | 2/2 correct
+  Fold 152/186: Subject Brest-061 | 3/3 correct
+  Fold 153/186: Subject Brest-044 | 1/1 correct
+  Fold 154/186: Subject Brest-101 | 1/1 correct
+  Fold 155/186: Subject Brest-047 | 1/1 correct
+  Fold 156/186: Subject Roscoff-070 | 1/1 correct
+  Fold 157/186: Subject Brest-093 | 2/2 correct
+  Fold 158/186: Subject Brest-007 | 1/1 correct
+  Fold 159/186: Subject Roscoff-064 | 1/1 correct
+  Fold 160/186: Subject Brest-015 | 1/1 correct
+  Fold 161/186: Subject Roscoff-085 | 2/2 correct
+  Fold 162/186: Subject Brest-003 | 1/1 correct
+  Fold 163/186: Subject Brest-075 | 1/1 correct
+  Fold 164/186: Subject Roscoff-077 | 3/3 correct
+  Fold 165/186: Subject Brest-043 | 1/1 correct
+  Fold 166/186: Subject Roscoff-072 | 2/2 correct
+  Fold 167/186: Subject Brest-096 | 1/1 correct
+  Fold 168/186: Subject Roscoff-021 | 3/3 correct
+  Fold 169/186: Subject Roscoff-046 | 1/1 correct
+  Fold 170/186: Subject Brest-090 | 1/1 correct
+  Fold 171/186: Subject Brest-026 | 1/1 correct
+  Fold 172/186: Subject Roscoff-062 | 1/1 correct
+  Fold 173/186: Subject Roscoff-012 | 1/1 correct
+  Fold 174/186: Subject Roscoff-071 | 2/2 correct
+  Fold 175/186: Subject Roscoff-074 | 1/1 correct
+  Fold 176/186: Subject Roscoff-059 | 1/1 correct
+  Fold 177/186: Subject Roscoff-095 | 1/1 correct
+  Fold 178/186: Subject P2T2 | 45/60 correct
+  Fold 179/186: Subject P1T2 | 45/60 correct
+  Fold 180/186: Subject P1T3 | 45/60 correct
+  Fold 181/186: Subject P2T1 | 45/60 correct
+  Fold 182/186: Subject P3T2 | 45/60 correct
+  Fold 183/186: Subject P1T1 | 45/60 correct
+  Fold 184/186: Subject P3T1 | 45/60 correct
+  Fold 185/186: Subject P3T3 | 45/60 correct
+  Fold 186/186: Subject P2T3 | 45/60 correct
+
+============================================================
+RESULTS: ALL EXERCISES
+============================================================
+Accuracy:          83.7% ± 0.0%
+Balanced Accuracy: 84.3% ± 0.0%
+F1 Score:          83.4% ± 0.0%
+
+Confusion Matrix:
+              Pred Correct  Pred Error
+True Correct        299         137
+True Error            0         405
+
+============================================================
+LOSO Evaluation: RTK
+============================================================
+Total samples: 281
+Subjects: 110
+Samples per subject: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+  Fold 1/110: Subject Roscoff-037 | 1/1 correct
+  Fold 2/110: Subject Brest-079 | 1/1 correct
+  Fold 3/110: Subject Roscoff-090 | 1/1 correct
+  Fold 4/110: Subject Brest-004 | 1/1 correct
+  Fold 5/110: Subject Brest-032 | 1/1 correct
+  Fold 6/110: Subject Roscoff-045 | 1/1 correct
+  Fold 7/110: Subject Roscoff-048 | 1/1 correct
+  Fold 8/110: Subject Roscoff-087 | 1/1 correct
+  Fold 9/110: Subject Brest-036 | 1/1 correct
+  Fold 10/110: Subject Brest-100 | 1/1 correct
+  Fold 11/110: Subject Brest-033 | 1/1 correct
+  Fold 12/110: Subject Roscoff-080 | 1/1 correct
+  Fold 13/110: Subject Roscoff-008 | 1/1 correct
+  Fold 14/110: Subject Brest-066 | 1/1 correct
+  Fold 15/110: Subject Brest-059 | 1/1 correct
+  Fold 16/110: Subject Brest-094 | 1/1 correct
+  Fold 17/110: Subject Brest-035 | 1/1 correct
+  Fold 18/110: Subject Roscoff-054 | 1/1 correct
+  Fold 19/110: Subject Roscoff-058 | 1/1 correct
+  Fold 20/110: Subject Roscoff-014 | 1/1 correct
+  Fold 21/110: Subject Roscoff-040 | 1/1 correct
+  Fold 22/110: Subject Brest-083 | 1/1 correct
+  Fold 23/110: Subject Roscoff-051 | 1/1 correct
+  Fold 24/110: Subject Roscoff-096 | 1/1 correct
+  Fold 25/110: Subject Brest-073 | 1/1 correct
+  Fold 26/110: Subject Brest-039 | 1/1 correct
+  Fold 27/110: Subject Roscoff-065 | 1/1 correct
+  Fold 28/110: Subject Brest-089 | 1/1 correct
+  Fold 29/110: Subject Brest-009 | 1/1 correct
+  Fold 30/110: Subject Brest-006 | 1/1 correct
+  Fold 31/110: Subject Roscoff-098 | 1/1 correct
+  Fold 32/110: Subject Roscoff-086 | 1/1 correct
+  Fold 33/110: Subject Roscoff-003 | 1/1 correct
+  Fold 34/110: Subject Roscoff-034 | 1/1 correct
+  Fold 35/110: Subject Brest-016 | 1/1 correct
+  Fold 36/110: Subject Brest-067 | 1/1 correct
+  Fold 37/110: Subject Brest-012 | 1/1 correct
+  Fold 38/110: Subject Brest-082 | 1/1 correct
+  Fold 39/110: Subject Roscoff-011 | 1/1 correct
+  Fold 40/110: Subject Roscoff-041 | 1/1 correct
+  Fold 41/110: Subject Brest-092 | 1/1 correct
+  Fold 42/110: Subject Roscoff-013 | 1/1 correct
+  Fold 43/110: Subject Roscoff-023 | 1/1 correct
+  Fold 44/110: Subject Brest-019 | 1/1 correct
+  Fold 45/110: Subject Roscoff-081 | 1/1 correct
+  Fold 46/110: Subject Brest-029 | 1/1 correct
+  Fold 47/110: Subject Roscoff-099 | 1/1 correct
+  Fold 48/110: Subject Roscoff-022 | 1/1 correct
+  Fold 49/110: Subject Brest-078 | 1/1 correct
+  Fold 50/110: Subject Roscoff-088 | 1/1 correct
+  Fold 51/110: Subject Brest-055 | 1/1 correct
+  Fold 52/110: Subject Brest-038 | 1/1 correct
+  Fold 53/110: Subject Roscoff-075 | 1/1 correct
+  Fold 54/110: Subject Roscoff-056 | 1/1 correct
+  Fold 55/110: Subject Roscoff-028 | 1/1 correct
+  Fold 56/110: Subject Roscoff-091 | 1/1 correct
+  Fold 57/110: Subject Roscoff-053 | 1/1 correct
+  Fold 58/110: Subject Brest-097 | 1/1 correct
+  Fold 59/110: Subject Roscoff-002 | 1/1 correct
+  Fold 60/110: Subject Roscoff-069 | 1/1 correct
+  Fold 61/110: Subject Roscoff-017 | 1/1 correct
+  Fold 62/110: Subject Brest-085 | 1/1 correct
+  Fold 63/110: Subject Brest-018 | 1/1 correct
+  Fold 64/110: Subject Roscoff-031 | 1/1 correct
+  Fold 65/110: Subject Roscoff-076 | 1/1 correct
+  Fold 66/110: Subject Roscoff-001 | 1/1 correct
+  Fold 67/110: Subject Roscoff-027 | 1/1 correct
+  Fold 68/110: Subject Brest-044 | 1/1 correct
+  Fold 69/110: Subject Brest-020 | 1/1 correct
+  Fold 70/110: Subject Brest-057 | 1/1 correct
+  Fold 71/110: Subject Brest-101 | 1/1 correct
+  Fold 72/110: Subject Brest-061 | 1/1 correct
+  Fold 73/110: Subject Roscoff-068 | 1/1 correct
+  Fold 74/110: Subject Brest-047 | 1/1 correct
+  Fold 75/110: Subject Roscoff-070 | 1/1 correct
+  Fold 76/110: Subject Brest-046 | 1/1 correct
+  Fold 77/110: Subject Brest-093 | 1/1 correct
+  Fold 78/110: Subject Roscoff-060 | 1/1 correct
+  Fold 79/110: Subject Brest-007 | 1/1 correct
+  Fold 80/110: Subject Roscoff-064 | 1/1 correct
+  Fold 81/110: Subject Brest-024 | 1/1 correct
+  Fold 82/110: Subject Brest-015 | 1/1 correct
+  Fold 83/110: Subject Brest-043 | 1/1 correct
+  Fold 84/110: Subject Roscoff-072 | 1/1 correct
+  Fold 85/110: Subject Roscoff-049 | 1/1 correct
+  Fold 86/110: Subject Roscoff-021 | 1/1 correct
+  Fold 87/110: Subject Roscoff-005 | 1/1 correct
+  Fold 88/110: Subject Brest-026 | 1/1 correct
+  Fold 89/110: Subject Roscoff-050 | 1/1 correct
+  Fold 90/110: Subject Roscoff-025 | 1/1 correct
+  Fold 91/110: Subject Roscoff-062 | 1/1 correct
+  Fold 92/110: Subject Roscoff-071 | 1/1 correct
+  Fold 93/110: Subject Roscoff-084 | 1/1 correct
+  Fold 94/110: Subject Roscoff-063 | 1/1 correct
+  Fold 95/110: Subject Roscoff-052 | 1/1 correct
+  Fold 96/110: Subject Roscoff-010 | 1/1 correct
+  Fold 97/110: Subject Brest-074 | 1/1 correct
+  Fold 98/110: Subject Roscoff-077 | 1/1 correct
+  Fold 99/110: Subject Roscoff-042 | 1/1 correct
+  Fold 100/110: Subject Roscoff-095 | 1/1 correct
+  Fold 101/110: Subject Roscoff-030 | 1/1 correct
+  Fold 102/110: Subject P1T3 | 15/20 correct
+  Fold 103/110: Subject P2T1 | 15/20 correct
+  Fold 104/110: Subject P3T2 | 15/20 correct
+  Fold 105/110: Subject P3T1 | 15/20 correct
+  Fold 106/110: Subject P1T1 | 15/20 correct
+  Fold 107/110: Subject P3T3 | 15/20 correct
+  Fold 108/110: Subject P1T2 | 15/20 correct
+  Fold 109/110: Subject P2T3 | 15/20 correct
+  Fold 110/110: Subject P2T2 | 15/20 correct
+
+============================================================
+RESULTS: RTK
+============================================================
+Accuracy:          84.0% ± 0.0%
+Balanced Accuracy: 84.6% ± 0.0%
+F1 Score:          83.7% ± 0.0%
+
+Confusion Matrix:
+              Pred Correct  Pred Error
+True Correct        101          45
+True Error            0         135
+
+============================================================
+LOSO Evaluation: CTK
+============================================================
+Total samples: 288
+Subjects: 117
+Samples per subject: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+  Fold 1/117: Subject Roscoff-082 | 1/1 correct
+  Fold 2/117: Subject Roscoff-044 | 1/1 correct
+  Fold 3/117: Subject Roscoff-047 | 1/1 correct
+  Fold 4/117: Subject Brest-020 | 1/1 correct
+  Fold 5/117: Subject Roscoff-005 | 1/1 correct
+  Fold 6/117: Subject Roscoff-052 | 1/1 correct
+  Fold 7/117: Subject Roscoff-007 | 1/1 correct
+  Fold 8/117: Subject Roscoff-079 | 1/1 correct
+  Fold 9/117: Subject Brest-011 | 1/1 correct
+  Fold 10/117: Subject Brest-071 | 1/1 correct
+  Fold 11/117: Subject Brest-042 | 1/1 correct
+  Fold 12/117: Subject Brest-067 | 1/1 correct
+  Fold 13/117: Subject Roscoff-035 | 1/1 correct
+  Fold 14/117: Subject Brest-065 | 1/1 correct
+  Fold 15/117: Subject Brest-032 | 1/1 correct
+  Fold 16/117: Subject Brest-048 | 1/1 correct
+  Fold 17/117: Subject Brest-055 | 1/1 correct
+  Fold 18/117: Subject Roscoff-031 | 1/1 correct
+  Fold 19/117: Subject Brest-070 | 1/1 correct
+  Fold 20/117: Subject Roscoff-004 | 1/1 correct
+  Fold 21/117: Subject Roscoff-075 | 1/1 correct
+  Fold 22/117: Subject Roscoff-053 | 1/1 correct
+  Fold 23/117: Subject Roscoff-010 | 1/1 correct
+  Fold 24/117: Subject Roscoff-100 | 1/1 correct
+  Fold 25/117: Subject Brest-084 | 1/1 correct
+  Fold 26/117: Subject Roscoff-087 | 1/1 correct
+  Fold 27/117: Subject Brest-102 | 1/1 correct
+  Fold 28/117: Subject Brest-014 | 1/1 correct
+  Fold 29/117: Subject Brest-072 | 1/1 correct
+  Fold 30/117: Subject Brest-073 | 1/1 correct
+  Fold 31/117: Subject Brest-056 | 1/1 correct
+  Fold 32/117: Subject Brest-092 | 1/1 correct
+  Fold 33/117: Subject Brest-083 | 1/1 correct
+  Fold 34/117: Subject Brest-036 | 1/1 correct
+  Fold 35/117: Subject Brest-107 | 1/1 correct
+  Fold 36/117: Subject Roscoff-097 | 1/1 correct
+  Fold 37/117: Subject Brest-054 | 1/1 correct
+  Fold 38/117: Subject Roscoff-063 | 1/1 correct
+  Fold 39/117: Subject Brest-022 | 1/1 correct
+  Fold 40/117: Subject Brest-106 | 1/1 correct
+  Fold 41/117: Subject Brest-066 | 1/1 correct
+  Fold 42/117: Subject Roscoff-101 | 1/1 correct
+  Fold 43/117: Subject Roscoff-076 | 1/1 correct
+  Fold 44/117: Subject Brest-108 | 1/1 correct
+  Fold 45/117: Subject Brest-033 | 1/1 correct
+  Fold 46/117: Subject Roscoff-027 | 1/1 correct
+  Fold 47/117: Subject Brest-095 | 1/1 correct
+  Fold 48/117: Subject Roscoff-037 | 1/1 correct
+  Fold 49/117: Subject Brest-062 | 1/1 correct
+  Fold 50/117: Subject Roscoff-049 | 1/1 correct
+  Fold 51/117: Subject Brest-002 | 1/1 correct
+  Fold 52/117: Subject Roscoff-098 | 1/1 correct
+  Fold 53/117: Subject Brest-064 | 1/1 correct
+  Fold 54/117: Subject Brest-030 | 1/1 correct
+  Fold 55/117: Subject Brest-078 | 1/1 correct
+  Fold 56/117: Subject Roscoff-028 | 1/1 correct
+  Fold 57/117: Subject Roscoff-023 | 1/1 correct
+  Fold 58/117: Subject Brest-057 | 1/1 correct
+  Fold 59/117: Subject Brest-024 | 1/1 correct
+  Fold 60/117: Subject Roscoff-060 | 1/1 correct
+  Fold 61/117: Subject Roscoff-080 | 1/1 correct
+  Fold 62/117: Subject Brest-104 | 1/1 correct
+  Fold 63/117: Subject Brest-086 | 1/1 correct
+  Fold 64/117: Subject Roscoff-089 | 1/1 correct
+  Fold 65/117: Subject Brest-099 | 1/1 correct
+  Fold 66/117: Subject Roscoff-041 | 1/1 correct
+  Fold 67/117: Subject Roscoff-017 | 1/1 correct
+  Fold 68/117: Subject Roscoff-105 | 1/1 correct
+  Fold 69/117: Subject Roscoff-019 | 1/1 correct
+  Fold 70/117: Subject Brest-039 | 1/1 correct
+  Fold 71/117: Subject Roscoff-103 | 1/1 correct
+  Fold 72/117: Subject Roscoff-006 | 1/1 correct
+  Fold 73/117: Subject Brest-061 | 1/1 correct
+  Fold 74/117: Subject Roscoff-058 | 1/1 correct
+  Fold 75/117: Subject Roscoff-045 | 1/1 correct
+  Fold 76/117: Subject Roscoff-040 | 1/1 correct
+  Fold 77/117: Subject Roscoff-069 | 1/1 correct
+  Fold 78/117: Subject Brest-094 | 1/1 correct
+  Fold 79/117: Subject Roscoff-016 | 1/1 correct
+  Fold 80/117: Subject Brest-008 | 1/1 correct
+  Fold 81/117: Subject Roscoff-085 | 1/1 correct
+  Fold 82/117: Subject Roscoff-050 | 1/1 correct
+  Fold 83/117: Subject Roscoff-081 | 1/1 correct
+  Fold 84/117: Subject Brest-038 | 1/1 correct
+  Fold 85/117: Subject Roscoff-077 | 1/1 correct
+  Fold 86/117: Subject Brest-096 | 1/1 correct
+  Fold 87/117: Subject Brest-029 | 0/1 correct
+  Fold 88/117: Subject Roscoff-025 | 1/1 correct
+  Fold 89/117: Subject Roscoff-009 | 1/1 correct
+  Fold 90/117: Subject Roscoff-088 | 1/1 correct
+  Fold 91/117: Subject Roscoff-046 | 1/1 correct
+  Fold 92/117: Subject Roscoff-003 | 1/1 correct
+  Fold 93/117: Subject Roscoff-015 | 1/1 correct
+  Fold 94/117: Subject Roscoff-021 | 1/1 correct
+  Fold 95/117: Subject Brest-090 | 1/1 correct
+  Fold 96/117: Subject Roscoff-043 | 1/1 correct
+  Fold 97/117: Subject Roscoff-026 | 1/1 correct
+  Fold 98/117: Subject Roscoff-018 | 1/1 correct
+  Fold 99/117: Subject Roscoff-012 | 1/1 correct
+  Fold 100/117: Subject Roscoff-013 | 1/1 correct
+  Fold 101/117: Subject Roscoff-074 | 1/1 correct
+  Fold 102/117: Subject Roscoff-051 | 1/1 correct
+  Fold 103/117: Subject Roscoff-059 | 1/1 correct
+  Fold 104/117: Subject Roscoff-001 | 1/1 correct
+  Fold 105/117: Subject Roscoff-068 | 1/1 correct
+  Fold 106/117: Subject Roscoff-091 | 1/1 correct
+  Fold 107/117: Subject Brest-093 | 1/1 correct
+  Fold 108/117: Subject Brest-034 | 1/1 correct
+  Fold 109/117: Subject P1T2 | 15/20 correct
+  Fold 110/117: Subject P3T2 | 15/20 correct
+  Fold 111/117: Subject P1T1 | 15/20 correct
+  Fold 112/117: Subject P2T2 | 15/20 correct
+  Fold 113/117: Subject P1T3 | 15/20 correct
+  Fold 114/117: Subject P3T1 | 15/20 correct
+  Fold 115/117: Subject P3T3 | 15/20 correct
+  Fold 116/117: Subject P2T1 | 15/20 correct
+  Fold 117/117: Subject P2T3 | 15/20 correct
+
+============================================================
+RESULTS: CTK
+============================================================
+Accuracy:          84.0% ± 0.0%
+Balanced Accuracy: 85.0% ± 0.0%
+F1 Score:          83.9% ± 0.0%
+
+Confusion Matrix:
+              Pred Correct  Pred Error
+True Correct        107          46
+True Error            0         135
+
+============================================================
+LOSO Evaluation: ELK
+============================================================
+Total samples: 272
+Subjects: 101
+Samples per subject: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+  Fold 1/101: Subject Brest-011 | 1/1 correct
+  Fold 2/101: Subject Brest-048 | 1/1 correct
+  Fold 3/101: Subject Roscoff-047 | 1/1 correct
+  Fold 4/101: Subject Brest-041 | 1/1 correct
+  Fold 5/101: Subject Brest-014 | 1/1 correct
+  Fold 6/101: Subject Roscoff-078 | 1/1 correct
+  Fold 7/101: Subject Roscoff-043 | 1/1 correct
+  Fold 8/101: Subject Roscoff-054 | 1/1 correct
+  Fold 9/101: Subject Brest-080 | 1/1 correct
+  Fold 10/101: Subject Brest-092 | 1/1 correct
+  Fold 11/101: Subject Roscoff-065 | 1/1 correct
+  Fold 12/101: Subject Roscoff-026 | 1/1 correct
+  Fold 13/101: Subject Brest-076 | 1/1 correct
+  Fold 14/101: Subject Roscoff-024 | 1/1 correct
+  Fold 15/101: Subject Roscoff-045 | 1/1 correct
+  Fold 16/101: Subject Roscoff-089 | 1/1 correct
+  Fold 17/101: Subject Brest-002 | 1/1 correct
+  Fold 18/101: Subject Roscoff-086 | 1/1 correct
+  Fold 19/101: Subject Brest-035 | 1/1 correct
+  Fold 20/101: Subject Roscoff-025 | 1/1 correct
+  Fold 21/101: Subject Roscoff-084 | 1/1 correct
+  Fold 22/101: Subject Roscoff-016 | 1/1 correct
+  Fold 23/101: Subject Roscoff-015 | 1/1 correct
+  Fold 24/101: Subject Brest-049 | 1/1 correct
+  Fold 25/101: Subject Roscoff-031 | 1/1 correct
+  Fold 26/101: Subject Brest-038 | 1/1 correct
+  Fold 27/101: Subject Brest-017 | 1/1 correct
+  Fold 28/101: Subject Brest-033 | 1/1 correct
+  Fold 29/101: Subject Brest-073 | 1/1 correct
+  Fold 30/101: Subject Brest-012 | 1/1 correct
+  Fold 31/101: Subject Brest-029 | 1/1 correct
+  Fold 32/101: Subject Brest-070 | 1/1 correct
+  Fold 33/101: Subject Brest-069 | 1/1 correct
+  Fold 34/101: Subject Roscoff-019 | 1/1 correct
+  Fold 35/101: Subject Roscoff-090 | 1/1 correct
+  Fold 36/101: Subject Roscoff-044 | 1/1 correct
+  Fold 37/101: Subject Roscoff-032 | 1/1 correct
+  Fold 38/101: Subject Roscoff-036 | 1/1 correct
+  Fold 39/101: Subject Roscoff-082 | 1/1 correct
+  Fold 40/101: Subject Brest-028 | 1/1 correct
+  Fold 41/101: Subject Roscoff-030 | 1/1 correct
+  Fold 42/101: Subject Roscoff-042 | 1/1 correct
+  Fold 43/101: Subject Roscoff-056 | 1/1 correct
+  Fold 44/101: Subject Brest-067 | 1/1 correct
+  Fold 45/101: Subject Roscoff-018 | 1/1 correct
+  Fold 46/101: Subject Brest-062 | 1/1 correct
+  Fold 47/101: Subject Roscoff-037 | 1/1 correct
+  Fold 48/101: Subject Brest-008 | 1/1 correct
+  Fold 49/101: Subject Roscoff-006 | 1/1 correct
+  Fold 50/101: Subject Roscoff-057 | 1/1 correct
+  Fold 51/101: Subject Brest-040 | 1/1 correct
+  Fold 52/101: Subject Brest-034 | 1/1 correct
+  Fold 53/101: Subject Roscoff-053 | 1/1 correct
+  Fold 54/101: Subject Brest-059 | 1/1 correct
+  Fold 55/101: Subject Brest-046 | 1/1 correct
+  Fold 56/101: Subject Roscoff-022 | 1/1 correct
+  Fold 57/101: Subject Brest-039 | 1/1 correct
+  Fold 58/101: Subject Roscoff-009 | 1/1 correct
+  Fold 59/101: Subject Roscoff-068 | 1/1 correct
+  Fold 60/101: Subject Roscoff-081 | 1/1 correct
+  Fold 61/101: Subject Brest-064 | 1/1 correct
+  Fold 62/101: Subject Brest-087 | 1/1 correct
+  Fold 63/101: Subject Roscoff-010 | 1/1 correct
+  Fold 64/101: Subject Brest-079 | 1/1 correct
+  Fold 65/101: Subject Brest-055 | 1/1 correct
+  Fold 66/101: Subject Roscoff-004 | 1/1 correct
+  Fold 67/101: Subject Brest-001 | 1/1 correct
+  Fold 68/101: Subject Roscoff-020 | 1/1 correct
+  Fold 69/101: Subject Brest-088 | 1/1 correct
+  Fold 70/101: Subject Roscoff-051 | 1/1 correct
+  Fold 71/101: Subject Roscoff-023 | 1/1 correct
+  Fold 72/101: Subject Roscoff-050 | 1/1 correct
+  Fold 73/101: Subject Brest-052 | 1/1 correct
+  Fold 74/101: Subject Brest-074 | 1/1 correct
+  Fold 75/101: Subject Brest-013 | 1/1 correct
+  Fold 76/101: Subject Roscoff-063 | 1/1 correct
+  Fold 77/101: Subject Brest-027 | 1/1 correct
+  Fold 78/101: Subject Roscoff-058 | 1/1 correct
+  Fold 79/101: Subject Brest-061 | 1/1 correct
+  Fold 80/101: Subject Brest-066 | 1/1 correct
+  Fold 81/101: Subject Roscoff-091 | 1/1 correct
+  Fold 82/101: Subject Brest-003 | 1/1 correct
+  Fold 83/101: Subject Brest-083 | 1/1 correct
+  Fold 84/101: Subject Brest-075 | 1/1 correct
+  Fold 85/101: Subject Roscoff-085 | 1/1 correct
+  Fold 86/101: Subject Roscoff-077 | 1/1 correct
+  Fold 87/101: Subject Roscoff-005 | 1/1 correct
+  Fold 88/101: Subject Roscoff-021 | 1/1 correct
+  Fold 89/101: Subject Roscoff-060 | 1/1 correct
+  Fold 90/101: Subject Roscoff-072 | 1/1 correct
+  Fold 91/101: Subject Roscoff-071 | 1/1 correct
+  Fold 92/101: Subject Roscoff-007 | 1/1 correct
+  Fold 93/101: Subject P2T2 | 15/20 correct
+  Fold 94/101: Subject P3T1 | 15/20 correct
+  Fold 95/101: Subject P2T1 | 15/20 correct
+  Fold 96/101: Subject P2T3 | 15/20 correct
+  Fold 97/101: Subject P1T1 | 15/20 correct
+  Fold 98/101: Subject P1T2 | 15/20 correct
+  Fold 99/101: Subject P3T3 | 15/20 correct
+  Fold 100/101: Subject P1T3 | 15/20 correct
+  Fold 101/101: Subject P3T2 | 15/20 correct
+
+============================================================
+RESULTS: ELK
+============================================================
+Accuracy:          83.5% ± 0.0%
+Balanced Accuracy: 83.6% ± 0.0%
+F1 Score:          83.0% ± 0.0%
+
+Confusion Matrix:
+              Pred Correct  Pred Error
+True Correct         92          45
+True Error            0         135
+
+============================================================
+SUMMARY: Per-Exercise Performance
+============================================================
+Exercise   Accuracy        Balanced Acc    F1 Score       
+-------------------------------------------------------
+RTK        84.0% ± 0.0%  84.6% ± 0.0%  83.7% ± 0.0%
+CTK        84.0% ± 0.0%  85.0% ± 0.0%  83.9% ± 0.0%
+ELK        83.5% ± 0.0%  83.6% ± 0.0%  83.0% ± 0.0%
+
+============================================================
+COMPARISON: vs IJCNN 2024 Baseline (LSTM)
+============================================================
+Exercise   IJCNN Best   IJCNN Avg       Ours           
+-------------------------------------------------------
+RTK        64.4%       53.9%          84.0%
+CTK        56.2%       49.1%          84.0%
+ELK        43.0%       31.6%          83.5%
+
+Results saved to /home2/gun3856/keraal/results/loso_results.pkl
