@@ -35,6 +35,10 @@ results/*.pkl
 results/*.log
 results/*.pt
 results/*.pth
+results/predictions_*.csv
+results/predictions_*_*.csv
+# Keep metrics JSON (small files for analysis)
+# results/*.json
 
 # Model checkpoints
 models/trained/

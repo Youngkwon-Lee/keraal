@@ -456,7 +456,11 @@ class LOSOEvaluator:
         # Aggregate results
         metrics = self._aggregate_results(all_results)
 
-        return metrics
+        # Return both metrics and raw results
+        return {
+            'metrics': metrics,
+            'predictions': all_results[0] if all_results else []  # First run predictions
+        }
 
     def _run_loso(self, samples, subject_samples, subjects, run_idx) -> List[Dict]:
         """Run one LOSO iteration."""
@@ -550,7 +554,9 @@ class LOSOEvaluator:
                 true_label = sample['label'].item()
 
                 logits = model(features)
+                probs = torch.softmax(logits, dim=1)
                 pred_label = logits.argmax(dim=1).item()
+                confidence = probs[0, pred_label].item()
 
                 results.append({
                     'sample_id': sample['sample_id'],
@@ -558,6 +564,9 @@ class LOSOEvaluator:
                     'exercise': sample['exercise'],
                     'true_label': true_label,
                     'pred_label': pred_label,
+                    'confidence': confidence,
+                    'prob_correct': probs[0, 0].item(),
+                    'prob_error': probs[0, 1].item(),
                     'correct': pred_label == true_label
                 })
 
@@ -675,19 +684,23 @@ def main():
     evaluator = LOSOEvaluator(config)
 
     # Run LOSO for all exercises combined
-    all_metrics = evaluator.run(samples, exercise=None)
-    if all_metrics:
-        print_results(all_metrics, "ALL EXERCISES")
+    all_results = evaluator.run(samples, exercise=None)
+    all_predictions = []
+    if all_results:
+        print_results(all_results['metrics'], "ALL EXERCISES")
+        all_predictions = all_results['predictions']
 
     # Run LOSO per exercise (IJCNN style)
     per_exercise_metrics = {}
+    per_exercise_predictions = {}
     for ex in ['RTK', 'CTK', 'ELK']:
         ex_samples = [s for s in samples if s.exercise == ex]
         if len(ex_samples) >= 3:
-            ex_metrics = evaluator.run(samples, exercise=ex)
-            if ex_metrics:
-                per_exercise_metrics[ex] = ex_metrics
-                print_results(ex_metrics, ex)
+            ex_results = evaluator.run(samples, exercise=ex)
+            if ex_results:
+                per_exercise_metrics[ex] = ex_results['metrics']
+                per_exercise_predictions[ex] = ex_results['predictions']
+                print_results(ex_results['metrics'], ex)
 
     # Summary comparison
     print(f"\n{'='*60}")
@@ -724,13 +737,67 @@ def main():
             print(f"{ex:<10} {ijcnn['best']:.1f}%       {ijcnn['avg']:.1f}%          {ours:.1f}%")
 
     # Save results
-    config.RESULT_DIR.mkdir(parents=True, exist_ok=True)
-    result_path = config.RESULT_DIR / 'loso_results.pkl'
+    import pandas as pd
+    import json
+    from datetime import datetime
 
+    config.RESULT_DIR.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # 1. Save predictions to CSV
+    if all_predictions:
+        df = pd.DataFrame(all_predictions)
+        csv_path = config.RESULT_DIR / f'predictions_{timestamp}.csv'
+        df.to_csv(csv_path, index=False)
+        print(f"\nPredictions saved to {csv_path}")
+
+    # 2. Save per-exercise predictions
+    for ex, preds in per_exercise_predictions.items():
+        if preds:
+            df = pd.DataFrame(preds)
+            csv_path = config.RESULT_DIR / f'predictions_{ex}_{timestamp}.csv'
+            df.to_csv(csv_path, index=False)
+
+    # 3. Save metrics to JSON
+    metrics_dict = {
+        'timestamp': timestamp,
+        'all_metrics': {
+            'accuracy': all_results['metrics']['accuracy'] if all_results else {},
+            'balanced_accuracy': all_results['metrics']['balanced_accuracy'] if all_results else {},
+            'f1': all_results['metrics']['f1'] if all_results else {},
+            'confusion_matrix': all_results['metrics']['confusion_matrix'].tolist() if all_results else []
+        },
+        'per_exercise_metrics': {
+            ex: {
+                'accuracy': m['accuracy'],
+                'balanced_accuracy': m['balanced_accuracy'],
+                'f1': m['f1'],
+                'confusion_matrix': m['confusion_matrix'].tolist()
+            } for ex, m in per_exercise_metrics.items()
+        },
+        'config': {
+            'epochs': config.EPOCHS,
+            'batch_size': config.BATCH_SIZE,
+            'hidden_size': config.HIDDEN_SIZE,
+            'num_runs': config.NUM_RUNS,
+            'task': config.TASK,
+            'learning_rate': config.LEARNING_RATE
+        }
+    }
+
+    json_path = config.RESULT_DIR / f'metrics_{timestamp}.json'
+    with open(json_path, 'w') as f:
+        json.dump(metrics_dict, f, indent=2)
+    print(f"Metrics saved to {json_path}")
+
+    # 4. Save full results to PKL (backward compatibility)
+    result_path = config.RESULT_DIR / 'loso_results.pkl'
     with open(result_path, 'wb') as f:
         pickle.dump({
-            'all_metrics': all_metrics,
+            'all_metrics': all_results['metrics'] if all_results else {},
+            'all_predictions': all_predictions,
             'per_exercise_metrics': per_exercise_metrics,
+            'per_exercise_predictions': per_exercise_predictions,
             'config': {
                 'epochs': config.EPOCHS,
                 'batch_size': config.BATCH_SIZE,
