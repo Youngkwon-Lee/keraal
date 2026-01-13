@@ -328,14 +328,14 @@ def generate_summary_table(metrics):
     print("="*70)
 
     # Overall metrics
-    print("\n📊 OVERALL PERFORMANCE")
+    print("\n[OVERALL PERFORMANCE]")
     print("-"*50)
-    print(f"  Accuracy:          {metrics['all_metrics']['accuracy']['mean']*100:.2f}% ± {metrics['all_metrics']['accuracy']['std']*100:.2f}%")
-    print(f"  Balanced Accuracy: {metrics['all_metrics']['balanced_accuracy']['mean']*100:.2f}% ± {metrics['all_metrics']['balanced_accuracy']['std']*100:.2f}%")
-    print(f"  F1 Score:          {metrics['all_metrics']['f1']['mean']*100:.2f}% ± {metrics['all_metrics']['f1']['std']*100:.2f}%")
+    print(f"  Accuracy:          {metrics['all_metrics']['accuracy']['mean']*100:.2f}% +/- {metrics['all_metrics']['accuracy']['std']*100:.2f}%")
+    print(f"  Balanced Accuracy: {metrics['all_metrics']['balanced_accuracy']['mean']*100:.2f}% +/- {metrics['all_metrics']['balanced_accuracy']['std']*100:.2f}%")
+    print(f"  F1 Score:          {metrics['all_metrics']['f1']['mean']*100:.2f}% +/- {metrics['all_metrics']['f1']['std']*100:.2f}%")
 
     # Per-exercise metrics
-    print("\n📈 PER-EXERCISE PERFORMANCE")
+    print("\n[PER-EXERCISE PERFORMANCE]")
     print("-"*50)
     print(f"{'Exercise':<10} {'Accuracy':<15} {'IJCNN Baseline':<15} {'Improvement':<15}")
     print("-"*50)
@@ -352,7 +352,7 @@ def generate_summary_table(metrics):
     tn, fp = cm[0]
     fn, tp = cm[1]
 
-    print("\n🔍 ERROR DETECTION ANALYSIS")
+    print("\n[ANALYSIS] ERROR DETECTION ANALYSIS")
     print("-"*50)
     print(f"  True Positives (Errors detected):    {tp}")
     print(f"  True Negatives (Correct classified): {tn}")
@@ -385,7 +385,7 @@ def main():
     generate_summary_table(metrics)
 
     # Generate visualizations
-    print("\n📊 Generating visualizations...")
+    print("\n[STATS] Generating visualizations...")
 
     # 1. Performance comparison
     plot_performance_comparison(metrics, save_path=output_dir / f'performance_comparison_{timestamp}.png')
@@ -400,13 +400,13 @@ def main():
     if predictions is not None:
         plot_prediction_distribution(predictions, save_path=output_dir / f'prediction_distribution_{timestamp}.png')
 
-    print(f"\n✅ All visualizations saved to {output_dir}/")
+    print(f"\n[OK] All visualizations saved to {output_dir}/")
     print("\nGenerated files:")
     for f in output_dir.glob(f"*_{timestamp}.png"):
         print(f"  - {f.name}")
 
-    # Show all plots
-    plt.show()
+    # Close all figures (don't block with GUI)
+    plt.close('all')
 
 
 if __name__ == '__main__':
